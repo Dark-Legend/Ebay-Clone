@@ -45,12 +45,17 @@ const Profile = () => {
                   }}
                 >
                   <Flex gap="3">
-                    <Image src={session?.user?.image} width={70} height={70} />
+                    <Image
+                      alt="User Avatar"
+                      src={session?.user?.image}
+                      width={70}
+                      height={70}
+                    />
                     <Box grow="1">
                       <p>{session?.user?.name}</p>
                     </Box>
                   </Flex>
-                  <Button variant="soft" onClick={() => signOut("google")}>
+                  <Button variant="soft" onClick={() => signOut()}>
                     <LockClosedIcon width="16" height="16" />
                     LogOut
                   </Button>

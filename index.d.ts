@@ -2,8 +2,12 @@ import Razorpay from "razorpay";
 
 export {};
 
+type WindowKey = {
+  Razorpay: unknown;
+};
+
 declare global {
-  interface Window {
+  interface Window<WindowKey> {
     Razorpay: Razorpay;
   }
 }
