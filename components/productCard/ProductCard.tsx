@@ -73,7 +73,6 @@ const ProductCard = (props: ProductProps) => {
       </Link>
       <div className="mx-auto mt-2 text-center">
         <Button
-          type="submit"
           size="2"
           color="blue"
           className="hover:cursor-pointer"
