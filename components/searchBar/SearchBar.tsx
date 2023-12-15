@@ -77,8 +77,8 @@ const SearchBar = () => {
         {showSearchResult && (
           <div className="absolute bottom-0 top-10 mt-2 bg-white w-full h-60 overflow-y-auto p-2 z-50 right-[2px] shadow-lg rounded border border-solid border-gray-300 transition-all duration-500 ease-in-out">
             <div className="flex flex-col gap-3">
-              {data?.result?.map((val) => (
-                <SearchItemsCard val={val} />
+              {data?.result?.map((val, i) => (
+                <SearchItemsCard key={i} val={val} />
               ))}
             </div>
           </div>

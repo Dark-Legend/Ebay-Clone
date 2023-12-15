@@ -39,7 +39,7 @@ export const Cart = ({
       <section className="w-full flex justify-start items-center gap-3">
         <div className="w-[70%] flex justify-center flex-col gap-2 mt-5">
           {data?.cartItem?.map((val: ValTypes) => (
-            <CartCard refetchCart={refetch} data={val} />
+            <CartCard key={val?.productId} refetchCart={refetch} data={val} />
           ))}
         </div>
         <div className="w-[30%] ">

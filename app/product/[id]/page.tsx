@@ -6,6 +6,7 @@ import { addCartItem } from "@/datafetch/cart/query";
 import { getProductsById } from "@/datafetch/getParticularProduct/query";
 import { storeEmail } from "@/store/storeCart/store";
 import { Button } from "@radix-ui/themes";
+import toast, { Toaster } from "react-hot-toast";
 
 interface ParamsTypes {
   params: {
@@ -27,7 +28,13 @@ const page = ({ params }: ParamsTypes) => {
       title: data?.result?.title,
     };
 
-    addItemToCart.mutate(payload);
+    const notify = () => toast.error("Login Required !");
+    if (!email) {
+      notify();
+    }
+    if (email) {
+      addItemToCart.mutate(payload);
+    }
   };
 
   if (isLoading) {
@@ -94,6 +101,7 @@ const page = ({ params }: ParamsTypes) => {
         </div>
       </div>
       <MoreProducts />
+      <Toaster />
     </div>
   );
 };

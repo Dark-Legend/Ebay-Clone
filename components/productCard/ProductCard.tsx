@@ -25,6 +25,7 @@ const ProductCard = (props: ProductProps) => {
   const email = storeEmail((state) => state.email);
 
   const { data, refetch: fetchCurrentCartItems } = currentUseCartItem(email);
+  console.log(email, "EMAIL");
 
   const notify = () => toast.success("Item added to cart.");
 
@@ -35,15 +36,21 @@ const ProductCard = (props: ProductProps) => {
       price: price,
       title: title,
     };
-    addItemToCart.mutate(payload, {
-      onSuccess: () => {
-        fetchCurrentCartItems();
-        notify();
-      },
-      onError: (err) => {
-        // console.log(err);
-      },
-    });
+    const notify = () => toast.error("Login Required !");
+    if (!email) {
+      notify();
+    }
+    if (email) {
+      addItemToCart.mutate(payload, {
+        onSuccess: () => {
+          fetchCurrentCartItems();
+          notify();
+        },
+        onError: (err) => {
+          // console.log(err);
+        },
+      });
+    }
   };
   return (
     <div className="mt-5">

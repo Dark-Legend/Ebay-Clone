@@ -2,8 +2,6 @@
 import { currentUseCartItem } from "@/datafetch/cart/query";
 import { Box } from "@radix-ui/themes";
 import { useSession } from "next-auth/react";
-import { FC } from "react";
-import { redirect } from "next/navigation";
 import { Cart } from "../../components/CartComponent/Cart";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -15,7 +13,7 @@ interface ValTypes {
   title: string;
 }
 
-const page: FC = () => {
+const page = () => {
   const { data: session } = useSession();
   const email = session?.user?.email;
   const { data, refetch, isLoading } = currentUseCartItem(email);
