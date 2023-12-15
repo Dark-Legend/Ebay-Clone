@@ -57,7 +57,7 @@ const Profile = () => {
                   </Flex>
                   <Button variant="soft" onClick={() => signOut()}>
                     <LockClosedIcon width="16" height="16" />
-                    LogOut
+                    Logout
                   </Button>
                 </Popover.Content>
               </Popover.Root>
