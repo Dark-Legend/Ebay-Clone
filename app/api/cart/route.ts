@@ -5,7 +5,6 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const { title, price, img, productId } = await req.json();
   const email = storeEmail((state) => state.email);
-  console.log(email, "EMAIL");
   try {
     const userCartItem = await prisma.user.findUnique({
       where: {
@@ -66,7 +65,7 @@ export async function POST(req: Request) {
           productId: productId,
           userEmail: {
             connect: {
-              email: "iamxguy352@gmail.com",
+              email: email,
             },
           },
         },
