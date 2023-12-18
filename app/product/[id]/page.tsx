@@ -26,6 +26,7 @@ const page = ({ params }: ParamsTypes) => {
       img: data?.result?.img,
       price: data?.result?.price,
       title: data?.result?.title,
+      email: email,
     };
 
     const notify = () => toast.error("Login Required !");

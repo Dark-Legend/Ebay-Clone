@@ -1,10 +1,8 @@
 import prisma from "@/lib/prismadb";
-import { storeEmail } from "@/store/storeCart/store";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-  const { title, price, img, productId } = await req.json();
-  const email = storeEmail((state) => state.email);
+  const { title, price, img, productId, email } = await req.json();
   try {
     const userCartItem = await prisma.user.findUnique({
       where: {

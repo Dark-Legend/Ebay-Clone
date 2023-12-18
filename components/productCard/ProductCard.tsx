@@ -34,6 +34,7 @@ const ProductCard = (props: ProductProps) => {
       img: img,
       price: price,
       title: title,
+      email: email,
     };
     const notify = () => toast.error("Login Required !");
     if (!email?.length || email === undefined) {
