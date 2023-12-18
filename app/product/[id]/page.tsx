@@ -29,7 +29,7 @@ const page = ({ params }: ParamsTypes) => {
     };
 
     const notify = () => toast.error("Login Required !");
-    if (!email) {
+    if (!email?.length || email === undefined) {
       notify();
     }
     if (email) {

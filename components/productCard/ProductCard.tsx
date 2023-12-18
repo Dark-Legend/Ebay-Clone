@@ -26,8 +26,7 @@ const ProductCard = (props: ProductProps) => {
 
   const { data, refetch: fetchCurrentCartItems } = currentUseCartItem(email);
   console.log(email, "EMAIL");
-
-  const notify = () => toast.success("Item added to cart.");
+  const itemAddedNotify = () => toast.success("Item Added To Cart");
 
   const handleAddCart = () => {
     const payload = {
@@ -37,14 +36,14 @@ const ProductCard = (props: ProductProps) => {
       title: title,
     };
     const notify = () => toast.error("Login Required !");
-    if (!email) {
+    if (!email?.length || email === undefined) {
       notify();
     }
-    if (email) {
+    if (email?.length > 0 || email !== undefined) {
       addItemToCart.mutate(payload, {
         onSuccess: () => {
           fetchCurrentCartItems();
-          notify();
+          itemAddedNotify();
         },
         onError: (err) => {
           // console.log(err);
